@@ -1,0 +1,226 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fashion | Teamplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/progressbar_barfiller.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated-headline.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    
+</head>
+<body class="full-wrapper">
+    
+    <header>
+        <!-- Header Start -->
+        <div class="header-area ">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                        <div class="header-left d-flex align-items-center">
+                            <!-- Logo -->
+                            <div class="logo">
+                              <h2>FLOWER & GIFTS SHOP</h2>
+                            </div>
+                            <!-- Main-menu -->
+                            <div class="main-menu  d-none d-lg-block d-flex justify-content-end">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{% url 'index' %}">Home</a></li> 
+                                        <li><a href="{% url 'orders' %}">Orders</a></li>
+                                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                        {% if user.is_authenticated %}
+                                        <li><a href="{% url 'logout' %}">Log-out</a></li>
+                                            
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>   
+                        </div>
+                        <div class="header-right1 d-flex align-items-center">
+                           
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <!-- header end -->
+    <main>
+        <!-- breadcrumb Start-->
+        <div class="page-notification">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Shop</a></li> 
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- listing Area Start -->
+        <div class="category-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-8 col-md-10">
+                        <div class="section-tittle mb-50">
+                            <h2>Shop with us</h2>
+                         
+                        </div>
+                    <div class="search">
+                        <form action="" method='post' >
+                            {% csrf_token %}
+                            <div class=" row" style="display:inline;">
+                                <input name='search' class="bg-light" type="text" placeholder="search here">
+                                <input class="bg-success text-light" type="submit">
+                            </div>
+                           
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--? Left content -->
+                    <div class="col-xl-3 col-lg-3 col-md-4 ">
+                        <!-- Job Category Listing start -->
+                        <div class="category-listing mb-50">
+                            <!-- single one -->
+                            <div class="single-listing">
+                                <!-- Select City items start -->
+                                <div class="select-job-items2">
+                                    
+                                </div>
+                                <!--  Select City items End-->
+                                <!-- Select State items start -->
+                                <div class="select-job-items2">
+                                   
+                                </div>
+                                <!--  Select State items End-->
+                                <!-- Select km items start -->
+                                <div class="select-job-items2">
+                                   
+                                </div>
+                                <!--  Select km items End-->
+                                <!-- Select km items start -->
+                                <div class="select-job-items2">
+                                   
+                                </div>
+                                <!--  Select km items End-->
+                                <!-- Select km items start -->
+                                <div class="select-job-items2">
+                                   
+                                </div>
+                                <!--  Select km items End-->
+                            </div>
+                        </div>
+                        <!-- Job Category Listing End -->
+                    </div>
+                    <!--?  Right content -->
+                    <div class="col-xl-9 col-lg-9 col-md-8 ">
+                        <!--? New Arrival Start -->
+                        <div class="new-arrival new-arrival2">
+                            <div class="row">
+                                {% for x in product %}
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                                        <div class="popular-img">
+                                            <img src="{{x.photo1.url}}" alt="">
+                                            <div class="favorit-items">
+                                                <!-- <span class="flaticon-heart"></span> -->
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="popular-caption">
+                                            <h3><a href="{% url 'product' x.id %}">{{x.name}}</a></h3>
+                                            
+                                            <span>$ {{x.price}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+</div>
+<!-- Button -->
+<div class="row justify-content-center">
+    <div class="room-btn mt-20">
+      
+</div>
+</div>
+<!--? New Arrival End -->
+</div>
+</div>
+</div>
+</div>
+<!-- listing-area Area End -->
+
+<script src="{% static './assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static './assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static './assets/js/popper.min.js' %}"></script>
+<script src="{% static './assets/js/bootstrap.min.js' %}"></script>
+
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="{% static './assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static './assets/js/slick.min.js' %}"></script>
+<script src="{% static './assets/js/jquery.slicknav.min.js' %}"></script>
+
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="{% static './assets/js/wow.min.js' %}"></script>
+<script src="{% static './assets/js/animated.headline.js' %}"></script>
+<script src="{% static './assets/js/jquery.magnific-popup.js' %}"></script>
+<script src="{% static './assets/js/gijgo.min.js' %}"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="{% static './assets/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static './assets/js/jquery.sticky.js' %}"></script>
+<script src="{% static './assets/js/jquery.barfiller.js' %}"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="{% static './assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static './assets/js/waypoints.min.js' %}"></script>
+<script src="{% static './assets/js/jquery.countdown.min.js' %}"></script>
+<script src="{% static './assets/js/hover-direction-snake.min.js' %}"></script>
+
+<!-- contact js -->
+<script src="{% static './assets/js/contact.js' %}"></script>
+<script src="{% static './assets/js/jquery.form.js' %}"></script>
+<script src="{% static './assets/js/jquery.validate.min.js' %}"></script>
+<script src="{% static './assets/js/mail-script.js' %}"></script>
+<script src="{% static './assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<!-- Jquery Plugins, main Jquery -->	
+<script src="{% static './assets/js/plugins.js' %}"></script>
+<script src="{% static './assets/js/main.js' %}"></script>
+
+
+</body>
+</html>
